@@ -8,8 +8,10 @@ body {
     color: white;
   }
 
+.hero { 
+    text-align: center;
+}
 h1.hero {
     font-weight: bold;
-    text-align: center;
     font-weight: 750;
 }
