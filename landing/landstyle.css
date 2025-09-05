@@ -1,18 +1,19 @@
-.instrument-serif-regular-italic {
+/*.instrument-serif-regular-italic {
     font-family: "Instrument Serif", serif;
     font-weight: 400;
     font-style: italic;
   }
+*/
 
 body {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings:
-      "slnt" 0;
-    background-color: black;
-    color: white;
-  }
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+  background-color: black;
+  color: white;
+}
 
 .hero { 
   text-align: center;
@@ -30,19 +31,13 @@ h1.hero {
 }
 
 h1.subheading { 
-.instrument-serif-regular {
-font-family: "Instrument Serif", serif;
-font-weight: 400;
-font-style: normal;
-}
-
-.instrument-serif-regular-italic {
-font-family: "Instrument Serif", serif;
-font-weight: 400;
-font-style: italic;
-}
-
+  .geist-mono-font {
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
 
 font-weight: bold;
-font-weight: 750;
+/*font-weight: 750;*/
 }
