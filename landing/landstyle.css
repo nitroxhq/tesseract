@@ -41,3 +41,22 @@ h1.subheading {
 font-weight: bold;
 /*font-weight: 750;*/
 }
+
+h1.alt-subheading {
+.instrument-sans-font {
+  font-family: "Instrument Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+
+  letter-spacing: -5px;
+  padding: 10px;
+  
+  font-variation-settings:
+    "wdth" 100;
+}
+
+font-weight: bold;
+/*font-weight: 750;*/
+}
+}
