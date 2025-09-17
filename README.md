@@ -1,3 +1,5 @@
 # Tesseract
 The ultimate productivity tool.
-<br> Unite your notes, calendar, todos, content capture, and mind mapping under one roof.
+Unify your enire second brain into one interface.
+
+<br> notes, calendar, todos, content capture, and mind mapping
