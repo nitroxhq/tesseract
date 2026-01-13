@@ -1,0 +1,57 @@
+:root {
+    font-family: 'Inter', sans-serif;
+}
+
+.elegant-heading {
+    margin-top: 50;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400; /* This font usually looks best at its natural weight */
+    font-size: 3rem;  /* It's a "display" font, so bigger is better! */
+    text-align: center
+}
+.elegant-heading:hover {
+    text-decoration: underline;
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: .85rem;
+
+    text-align: right;
+
+    max-width: 1500px;
+    margin: 0 auto;
+    /* This creates a 5% margin on the sides and 50px at the top/bottom */
+    padding: 40px 20px;
+    box-sizing: border-box; /* Crucial: makes sure padding doesn't cause horizontal scrolling */
+}
+
+.body-center{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: .85rem;
+    text-align: center;
+
+    max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
+    margin: 0 auto;      /* The magic line: centers the box horizontally */
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.hero-heading {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3rem;
+
+    font-weight: 400;
+    text-align: center;
+
+    max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
+    margin: 0 auto;      /* The magic line: centers the box horizontally */
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+.superhero-heading:hover {
+    text-decoration: underline;
+}
+
