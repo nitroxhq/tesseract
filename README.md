@@ -1,5 +1,5 @@
 # Tesseract
 The ultimate productivity tool.
-Unify your enire second brain into one interface.
+Unify your enire digital brain into one interface.
 
-<br> notes, calendar, todos, content capture, and mind mapping
+<br> notes, calendar, todos, content capture, and mind mapping.
