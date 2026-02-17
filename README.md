@@ -1,4 +1,4 @@
-# Tesseract
+# tesseract
 The ultimate productivity tool.
 Unify your enire digital brain into one interface.
 
