@@ -72,8 +72,8 @@ html, body {
 body {
   margin: 0;
   /* Use a relative path so the image resolves on GitHub Pages project sites */
-  background: url('assets/purple%20borealis.jpg') center/cover no-repeat fixed;
-  background-color: darkorchid;
+  background: url('assets/purple-borealis.jpg') center/cover no-repeat fixed;
+  background-color: rgb(#3e1172);
   
   color: white;
   font-family: 'Inter', sans-serif;
