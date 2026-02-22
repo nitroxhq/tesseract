@@ -1,58 +1,61 @@
 :root {
-    font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
+
+
+  background-color: black;
 }
 
 .elegant-heading {
-    margin-top: 50;
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400; /* This font usually looks best at its natural weight */
-    font-size: 3rem;  /* It's a "display" font, so bigger is better! */
-    text-align: center
+  margin-top: 50;
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400; /* This font usually looks best at its natural weight */
+  font-size: 3rem;  /* It's a "display" font, so bigger is better! */
+  text-align: center
 }
 .elegant-heading:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-p {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: .85rem;
+.body{
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: .85rem;
 
-    /* text-align: right; */
+  /* text-align: right; */
 
-    max-width: 1500px;
-    margin: 0 auto;
-    /* This creates a 5% margin on the sides and 50px at the top/bottom */
-    padding: 40px 20px;
-    box-sizing: border-box; /* Crucial: makes sure padding doesn't cause horizontal scrolling */
+  max-width: 1500px;
+  margin: 0 auto;
+  /* This creates a 5% margin on the sides and 50px at the top/bottom */
+  padding: 40px 20px;
+  box-sizing: border-box; /* Crucial: makes sure padding doesn't cause horizontal scrolling */
 }
 
 .body-center{
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: .85rem;
-    text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: .85rem;
+  text-align: center;
 
-    max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
-    margin: 0 auto;      /* The magic line: centers the box horizontally */
-    padding: 40px 20px;
-    box-sizing: border-box;
+  max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
+  margin: 0 auto;      /* The magic line: centers the box horizontally */
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 .hero-heading {
-    font-family: 'Instrument Serif', serif;
-    font-size: 3rem;
+  font-family: 'Instrument Serif', serif;
+  font-size: 3rem;
 
-    font-weight: 400;
-    text-align: center;
+  font-weight: 400;
+  text-align: center;
 
-    max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
-    margin: 0 auto;      /* The magic line: centers the box horizontally */
-    padding: 40px 20px;
-    box-sizing: border-box;
+  max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
+  margin: 0 auto;      /* The magic line: centers the box horizontally */
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 .superhero-heading:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 
@@ -72,10 +75,10 @@ html, body {
 body {
   margin: 0;
   /* Use a relative path so the image resolves on GitHub Pages project sites */
-  background: url('assets/purple-borealis.jpg') center/cover no-repeat fixed;
-  background-color: rgb(#3e1172);
+  /* background: url('.assets/purple-borealis.jpg') center/cover no-repeat fixed; */
+  /* background-color: rgb(#3e1172); */
   
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,6 +93,14 @@ body {
   gap: 1rem;
   padding: 2rem;
 }
+
+.metadata {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: -0.8rem;
+}
+
 /* Hero container: no dark box, center content responsively */
 .hero {
   padding: 0;
@@ -117,9 +128,12 @@ body {
   margin: 0;
   text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
+
+/* links ------------------------------ */
 .cta-links {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -130,29 +144,79 @@ body {
   text-decoration: underline;
   font-size: 1rem;
   padding: 0.5rem;
+  font-weight: 300;
 }
+
+/* buttons ------------------------------ */
 .btn {
-  padding: 0.6rem 1.1rem;
+  padding: 0.55rem 1.4rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   display: inline-block;
-  transition: transform 160ms ease, filter 160ms ease;
+  transition: background 0.3s ease, border 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
-.btn-download {
-  background: #2563eb;
-  color: #fff;
-  box-shadow: 0 3px 8px rgba(37,99,235,0.24);
-}
-.btn-download:hover {
-  filter: brightness(0.95);
-  transform: translateY(-1px);
-}
-.btn-web {
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.12);
-}
-.btn-web:hover { background: rgba(255,255,255,0.12); }
 
+.main-btns {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: #A161EA;
+  color: #fff;
+  box-shadow: 0 0px 15px #A161EA;
+}
+.btn-primary:hover {
+  background: #C897FF; /* colors the link when hovered over */
+  transform: translateY(-5px);
+}
+
+
+
+.btn-sub {
+  background: rgb(212, 212, 212);
+  color: #000000;
+  box-shadow: 0 0px 15px rgba(255, 255, 255, 0.24);
+}
+.btn-sub:hover { 
+  background: rgb(255, 255, 255); 
+  transform: translateY(-5px);
+}
+
+
+
+.btn-bar {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0px;
+  background: rgba(40, 5, 58, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  box-shadow: 0 0px 15px rgba(79, 22, 105, 0.24);
+}
+
+.btn-bar:hover {
+  border: 2px solid rgba(161, 97, 234, 0.4);
+  background: rgba(41, 5, 59, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 0px 10px rgba(163, 21, 228, 0.24);
+}
+
+.btn-bar-text {
+  color: #A161EA;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-bar-div {
+  color:rgb(81, 65, 94);
+  font-weight: 750;
+  margin: 0 -2.4rem;
+}
 

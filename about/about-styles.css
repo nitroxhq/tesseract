@@ -1,5 +1,7 @@
 :root {
     font-family: 'Inter', sans-serif;
+    background-color: black;
+    color: white;
 }
 
 .elegant-heading {
@@ -39,7 +41,45 @@
     box-sizing: border-box;
 }
 
+.body-emphasis {
+    font-weight: bold;
+}
+.body-emphasis:hover {
+    text-decoration: underline;
+
+
+    color: transparent; 
+    /* Fallback text color for browsers that don't support background-clip: text */
+    -webkit-text-fill-color: transparent; 
+
+    /* Define the gradient background that will "fill" the text */
+    background: linear-gradient(to right, #762aa5, #d268fc); /* Example: red to blue */
+    /* Clip the background to the text shape */
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    /* Set the initial background size to cover the entire text area */
+    background-size: 0% 100%;
+    /* Ensure the background does not repeat */
+    background-repeat: no-repeat;
+    
+    /* Apply the animation */
+    animation: color-fill 1.1s linear forwards;
+}
+
+@keyframes color-fill {
+    0% {
+        background-size: 0% 100%; /* Starts with 0% width of the background visible */
+    }
+    100% {
+        background-size: 100% 100%; /* Ends with 100% width of the background visible */
+    }
+}
+
+
+
 .tesseract-heading {
+    color: #A161EA;
     font-family: 'Instrument Serif', serif;
     font-size: 3rem;
 
@@ -53,6 +93,7 @@
 }
 .tesseract-heading:hover {
     text-decoration: underline;
+    background: #2e2e2e;
 }
 
 .social-button {
