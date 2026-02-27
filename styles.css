@@ -1,8 +1,33 @@
 :root {
   font-family: 'Inter', sans-serif;
-
-
   background-color: black;
+
+  /* VARS ---------------------------- */
+  /* colors */
+  --primary-color: #A161EA;
+  --primary-shadow: rgba(161, 97, 234, 0.24);
+  --secondary-color: #C897FF;
+  /* fonts */
+  --serif: 'Instrument Serif', serif;
+  --sans-serif: 'Inter', sans-serif;
+  --mono: 'Geist Mono', monospace;
+}
+
+.hero-heading {
+  font-family: 'Instrument Serif', serif;
+  font-size: 3rem;
+
+  font-weight: 400;
+  text-align: center;
+
+  max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
+  margin: 0 auto;      /* The magic line: centers the box horizontally */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.superhero:hover {
+  text-decoration: underline;
 }
 
 .elegant-heading {
@@ -42,64 +67,28 @@
   box-sizing: border-box;
 }
 
-.hero-heading {
-  font-family: 'Instrument Serif', serif;
-  font-size: 3rem;
-
-  font-weight: 400;
-  text-align: center;
-
-  max-width: 900px;    /* Limits how wide the text gets (standard for readability) */
-  margin: 0 auto;      /* The magic line: centers the box horizontally */
-  padding: 40px 20px;
-  box-sizing: border-box;
-}
-.superhero-heading:hover {
-  text-decoration: underline;
-}
 
 
 
 
-
-
-
-
-
-
-
-/* ---- Landing page styles (added) ---- */
-html, body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  /* Use a relative path so the image resolves on GitHub Pages project sites */
-  /* background: url('.assets/purple-borealis.jpg') center/cover no-repeat fixed; */
-  /* background-color: rgb(#3e1172); */
-  
-  color: rgb(255, 255, 255);
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.landing-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1rem;
-  padding: 2rem;
+.typewriter h1 {
+  overflow: hidden; /* Hides text until animation */
+  border-right: .15em solid orange; /* Cursor */
+  white-space: nowrap; /* Keeps text on one line */
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
 }
 
-.metadata {
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
-  margin-top: -0.8rem;
-}
+/* Typing & Cursor Animations */
+@keyframes typing { from { width: 0 } to { width: 100% } };
+@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: orange } };
+
+
+
+
 
 /* Hero container: no dark box, center content responsively */
 .hero {
@@ -123,11 +112,59 @@ body {
   filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
 }
 .tagline {
-  font-family: 'Instrument Serif', serif;
-  font-size: 1.75rem;
+  font-family: var(--serif);
+  font-size: 2rem;
   margin: 0;
   text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
+.tagline-sub {
+  font-family: var(--mono);
+  font-weight: 300;
+  font-size: 0.75rem;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+
+
+
+
+/* ---- Landing page styles (added) ---- */
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  /* Use a relative path so the image resolves on GitHub Pages project sites */
+  /* background: url('.assets/purple-borealis.jpg') center/cover no-repeat fixed; */
+  /* background-color: rgb(#3e1172); */
+  
+  color: rgb(255, 255, 255);
+  font-family: var(--sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.landing-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.metadata {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: -0.8rem;
+}
+
+
+
+
 
 /* links ------------------------------ */
 .cta-links {
@@ -146,6 +183,10 @@ body {
   padding: 0.5rem;
   font-weight: 300;
 }
+
+
+
+
 
 /* buttons ------------------------------ */
 .btn {
