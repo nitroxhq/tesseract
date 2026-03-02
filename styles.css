@@ -110,6 +110,8 @@
   margin: 0 0 0.5rem 0;
   /* softer shadow when no dark panel is used */
   filter: drop-shadow(0 6px 18px rgba(0,0,0,0.25));
+  /* temp border */
+  border: 5px dashed lime;
 }
 .tagline {
   font-family: var(--serif);
