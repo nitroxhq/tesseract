@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="/.assets/tesseract logo 55px.svg">
  
-    <!-- libraries -->
-    <script src="https://cdn.jsdelivr.net"></script>
+    <!-- libraries - load dependencies in correct order -->
+    <!-- load Typed.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   </head>
 
   <!-- 
@@ -49,14 +50,11 @@
         </div>
 
         <h2 class="tagline">
-          <span>
-            Tesseract is your
-          </span>
-          <span>
-            <p id="typeWriter"></p>
-          </span>.</span>
+          <span>Tesseract is your </span>
+          <span id="typeWriter"><!--productivity supertool.--></span>
           <br>
           <span class="tagline tagline-sub"> now under development.</span>
+          <!-- FIX: 1) in browser (not vscode) the logo shifts when typing. /// 2) ADD MARGIN UNDER "now under development" /// 3) make sure its centered. -->
         </h2>
 
         <nav class="cta-links" aria-label="primary actions">
@@ -77,6 +75,9 @@
         </nav>
       </div>
     </main>
+
+    <!-- site JavaScript -->
+    <script src="script.js"></script>
   </body>
 </html>
 
