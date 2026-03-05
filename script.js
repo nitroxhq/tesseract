@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // existing text once the animation begins, then cycle through the
   // list below indefinitely.
 
+  // typed.js btw lol
+
   var typed = new Typed('#typeWriter', {
     strings: [
       'idea inbox.',
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'creativity catalyst.',
       'productivity supertool.'
     ],
-    typeSpeed: 40,
+    typeSpeed: 50,
     backSpeed: 25,
     backDelay: 3000,
     /* startDelay: 1000,   // keeps the HTML text visible briefly */
