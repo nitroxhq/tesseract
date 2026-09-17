@@ -1,22 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Geist+Mono:wght@100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-/*
-  Tesseract stylesheet
-  --------------------
-  1. Theme variables
-  2. Shared typography and utilities
-  3. Shared navigation
-  4. Landing page components
-  5. About page components
-  6. Landing hero and desktop preview
-  7. 404 page
-  8. Tab Manager page
-  9. Responsive overrides
-*/
-
 :root {
-  font-family: var(--sans-serif);
+  font-family: 'Inter', sans-serif;
   /* background-color: black; */
   background-color: #0f0f0f;
   /* background: #2e2e2e;
@@ -33,29 +19,20 @@
 
   /* VARS ---------------------------- */
   /* colors */
-    --background-color: #0f0f0f;
     --primary-color: #A161EA;
     --primary-shadow: rgba(161, 97, 234, 0.24);
     --secondary-color: #C897FF;
     --text: #ffffff;
-    --window-background: #29292d;
-    --window-close: #ff5f57;
-    --window-minimize: #febc2e;
-    --window-maximize: #28c840;
-    --nitrox-color: #0B73EE;
   /* fonts */
-    /* --serif: 'Instrument Serif', serif; */
-    --serif: 'EB Garamond', serif;
+    --serif: 'Instrument Serif', serif;
     --sans-serif: 'Inter', sans-serif;
     --mono: 'Geist Mono', monospace;
     --sans: 'Instrument Sans', sans-serif;
-
     --mond: 'EB Garamond', serif;
-    --inst: 'Instrument Serif', serif;
 }
 
 .hero-heading {
-  font-family: var(--serif);
+  font-family: 'Instrument Serif', serif;
   font-size: 3rem;
 
   font-weight: 400;
@@ -73,7 +50,7 @@
 
 .elegant-heading {
   margin-top: 50;
-  font-family: var(--serif);
+  font-family: 'Instrument Serif', serif;
   font-weight: 400; /* This font usually looks best at its natural weight */
   font-size: 3rem;  /* It's a "display" font, so bigger is better! */
   text-align: center;
@@ -84,7 +61,7 @@
 }
 
 .body{
-  font-family: var(--sans-serif);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: .85rem;
 
@@ -98,7 +75,7 @@
 }
 
 .body-center{
-  font-family: var(--sans-serif);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: .85rem;
   text-align: center;
@@ -214,9 +191,9 @@
 
 
 
-/* Shared navigation */
+/* nav */
 .top-nav {
-  font-family: var(--sans-serif);
+  font-family: 'Inter', sans-serif;
   font-weight: 550;
 
   position: fixed;
@@ -226,7 +203,7 @@
   z-index: 100;
   height: 4rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   color: var(--text);
   background: rgba(15, 15, 15, 0.85);
@@ -251,101 +228,52 @@ nav.cta-links {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.nav-brand-group {
-  display: flex;
-  align-items: center;
-  margin-left: 1rem;
-}
-
 .nav-logo {
-  width: 1.5rem;
-  height: 1.7rem;
-}
-
-.nav-brand-text {
-  font-family: var(--sans);
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-.brand-divider {
-  margin-left: 1.25rem;
-  color: rgba(255, 255, 255, 0.28);
-  font-family: var(--mono);
-}
-
-.nitrox-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-left: 0.85rem;
-  color: var(--text);
-  text-decoration: none;
-  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
-}
-
-.nitrox-brand:hover {
-  opacity: 0.78;
-  transform: translateY(-1px);
-}
-
-.nitrox-logo {
-  display: block;
-  width: 1.5rem;
-  height: 1.7rem;
-  background: var(--nitrox-color);
-  -webkit-mask: url("./assets/white-logo-svg.svg") center / contain no-repeat;
-  mask: url("./assets/white-logo-svg.svg") center / contain no-repeat;
-}
-
-.nitrox-brand-text {
-  font-family: var(--sans);
-  font-size: 1.1rem;
-  font-weight: 600;
+  height: 1.5rem;
+  margin: auto 1rem;
 }
 .nav-menu ul {
-  margin: 0 1rem 0 0;
+  margin: 10px;
   padding: 0;
   display: flex;
   
   list-style: none;
-  gap: 0.35rem;
+  gap: 2.25rem;
   justify-content: flex-end;
 }
 .nav-menu ul li a {
   color: var(--text);
   text-decoration: none;
-  padding: 0.6rem 0.8rem;
+
+  /* top | right | bottom | left */
+  padding: 15px 15px 15px 15px;
+
   display: block;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.72);
-  transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-}
-.nav-menu ul li {
-  transition: transform 0.3s ease;
+  background-color: var(--primary-color);
+
+  border-radius: 7.5px;
+  background: linear-gradient(currentColor 0 0) bottom left / var(--underline-width, 0%) 0.1em no-repeat;
+  transition: 0.5s ease; /* Animate the background size */
 }
 .nav-menu ul li:hover {
-  transform: translateY(-2px);
-}
-.nav-menu ul li:hover a {
-  color: var(--text);
-  background: rgba(161, 97, 234, 0.16);
-  border-color: rgba(200, 151, 255, 0.24);
-  box-shadow: 0 8px 24px rgba(161, 97, 234, 0.16);
+  background-color: var(--primary-color);
+  border-radius: 7.5px;
+  --underline-width: 100%; /* Change the custom property on hover */
+
+  background: var(--primary-color); 
+  border-color: var(--secondary-color);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(161, 97, 234, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  transition: all 0.5s ease-in-out; ;
 }
 .nav-hamburger {
-  display: none;
+  display: none; /* Hidden by default, shown on smaller screens */
   gap: 5px;
   margin-right: 1rem;
 
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   position: absolute;
@@ -359,7 +287,6 @@ nav.cta-links {
   border-radius: 0.25rem;
   transition: all 0.3s ease;
 }
-/* Navigation responsive layout */
 @media screen and (max-width: 550px) {
   .nav-hamburger {
     display: flex; /* Show hamburger on small screens */
@@ -399,7 +326,7 @@ nav.cta-links {
 
 
 
-/* Landing page base */
+/* ---- Landing page styles (added) ---- */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
@@ -452,7 +379,7 @@ body {
 
 
 
-/* Landing page links */
+/* links ------------------------------ */
 .cta-links {
   display: flex;
   flex-direction: column;
@@ -474,7 +401,7 @@ body {
 
 
 
-/* Shared buttons */
+/* buttons ------------------------------ */
 .btn {
   padding: 0.55rem 1.4rem;
   border-radius: 10rem;
@@ -498,19 +425,6 @@ body {
 }
 .btn-primary:hover {
   background: #C897FF; /* colors the link when hovered over */
-  transform: translateY(-5px);
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--text);
-  border-color: rgba(255, 255, 255, 0.28);
   transform: translateY(-5px);
 }
 
@@ -560,7 +474,7 @@ body {
   margin: 0 -2.4rem;
 }
 
-/* Landing page bento grid */
+/* bento grid ------------------------------ */
 .bento-section {
   width: 100%;
   max-width: 980px;
@@ -593,7 +507,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  transition: background-color 0.5s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bento-card:hover {
@@ -648,7 +562,6 @@ body {
   grid-column: span 2;
 }
 
-/* Bento grid tablet layout */
 @media screen and (max-width: 768px) {
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -659,7 +572,6 @@ body {
   }
 }
 
-/* Bento grid mobile layout */
 @media screen and (max-width: 480px) {
   .bento-grid {
     grid-template-columns: 1fr;
@@ -676,7 +588,7 @@ body {
 
 
 
-/* Shared call to action */
+/* cta */
 .cta-section {
   text-align: center;
   padding: 4rem 2rem;
@@ -703,7 +615,7 @@ body {
 }
 
 
-/* Shared footer */
+/* footer ------------------------------ */
 .site-footer {
   padding: 3rem 2rem;
   text-align: center;
@@ -728,7 +640,7 @@ body {
 }
 
 .footer-text {
-  font-family: var(--sans);
+  font-family: 'Instrument Sans', sans-serif;
   font-weight: 600;
   font-size: 1.75rem;
   color: var(--text);
@@ -742,7 +654,7 @@ body {
   margin: 0;
 }
 
-/* About page typography and components */
+/* about page styles (migrated from about-styles.css) ------------------------------ */
 .body-emphasis {
   font-weight: bold;
 }
@@ -805,7 +717,7 @@ body {
   box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
 }
 
-/* About page sections */
+/* about page sections ------------------------------ */
 .hero {
   padding-top: 4rem;
   max-width: 900px;
@@ -871,309 +783,3 @@ body {
   margin-top: 1.5rem;
 }
 
-/* Landing hero and desktop preview */
-.landing-container {
-  align-items: stretch;
-  justify-content: flex-start;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 8rem 4rem 5rem;
-}
-
-.landing-container > .hero {
-  align-items: flex-start;
-  max-width: 900px;
-  margin: 0 auto 4rem 0;
-  padding-top: 0;
-  text-align: left;
-}
-
-.landing-container > .hero .hero-heading {
-  margin: 0 0 0.75rem;
-  padding: 0;
-  text-align: left;
-  white-space: nowrap;
-}
-
-.landing-container > .hero .hero-subtitle {
-  margin: 0 0 1.5rem;
-}
-
-.landing-container > .hero .hero-description {
-  margin: 0 0 2rem;
-  font-family: var(--sans-serif);
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.78);
-  line-height: 1.6;
-}
-
-.landing-container nav.cta-links {
-  align-items: flex-start;
-  gap: 0;
-  margin-top: 0;
-}
-
-.landing-container nav.cta-links .main-btns {
-  justify-content: flex-start;
-}
-
-.app-preview {
-  position: relative;
-  min-height: 620px;
-  overflow: hidden;
-  padding: 5rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 2rem;
-  background: url("./assets/purple-borealis.jpg") center / cover no-repeat;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-}
-
-.app-preview::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(25, 10, 39, 0.18);
-}
-
-.app-window {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  min-height: 520px;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 1.25rem;
-  background: var(--window-background);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-}
-
-.window-controls {
-  position: absolute;
-  top: 1.25rem;
-  left: 1.35rem;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.stoplight {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 50%;
-}
-
-.stoplight-close {
-  background: var(--window-close);
-}
-
-.stoplight-minimize {
-  background: var(--window-minimize);
-}
-
-.stoplight-maximize {
-  background: var(--window-maximize);
-}
-
-.preview-message {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  color: var(--text);
-  text-align: center;
-}
-
-.preview-message img {
-  width: 3.5rem;
-  height: 3.5rem;
-}
-
-.preview-message p {
-  margin: 0;
-  font-family: var(--sans-serif);
-  font-size: clamp(2rem, 4vw, 3.5rem);
-}
-
-/* Landing hero responsive layout */
-@media screen and (max-width: 700px) {
-  .landing-container {
-    padding: 7rem 1.25rem 3rem;
-  }
-
-  .landing-container > .hero {
-    margin-bottom: 3rem;
-  }
-
-  .landing-container .tagline {
-    font-size: 1.75rem;
-  }
-
-  .landing-container > .hero .hero-heading {
-    font-size: 2.25rem;
-    white-space: normal;
-  }
-
-  .landing-container > .hero .main-btns {
-    align-items: flex-start;
-  }
-
-  .app-preview {
-    min-height: 430px;
-    padding: 1.25rem;
-    border-radius: 1.25rem;
-  }
-
-  .app-window {
-    min-height: 380px;
-  }
-}
-
-/* 404 page */
-.not-found-page {
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem 1.5rem;
-  box-sizing: border-box;
-  background: var(--not-found-background);
-}
-
-.not-found-content {
-  width: min(100%, 600px);
-  text-align: center;
-}
-
-.not-found-content h1 {
-  margin: 0 0 1rem;
-  font-family: var(--serif);
-  font-size: 4rem;
-  font-weight: 400;
-  line-height: 1;
-}
-
-.not-found-content p {
-  margin: 0.5rem 0;
-  font-family: var(--sans-serif);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.not-found-link {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.65rem 1.3rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--text);
-  font-family: var(--sans-serif);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.16s ease;
-}
-
-.not-found-link:hover {
-  background: rgba(255, 255, 255, 0.22);
-}
-
-/* tab manager page */
-.tab-manager-page {
-  background: var(--background-color);
-}
-
-.tab-manager-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 9rem 4rem 5rem;
-}
-
-.tab-manager-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.tab-manager-copy {
-  max-width: 620px;
-  text-align: left;
-}
-
-.tab-manager-copy .hero-heading {
-  margin: 0 0 0.75rem;
-  padding: 0;
-  text-align: left;
-}
-
-.tab-manager-copy .metadata {
-  margin: 0 0 1.5rem;
-}
-
-.tab-manager-copy .description {
-  max-width: 560px;
-  margin: 0 0 2rem;
-  padding: 0;
-  text-align: left;
-}
-
-.tab-manager-copy .cta-links {
-  align-items: flex-start;
-  margin-top: 0;
-}
-
-.tab-manager-preview {
-  position: relative;
-  overflow: hidden;
-  padding: 5rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 2rem;
-  background: url("./assets/purple-borealis.jpg") center / cover no-repeat;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-}
-
-.tab-manager-preview::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(25, 10, 39, 0.18);
-}
-
-.tab-manager-window {
-  position: relative;
-  z-index: 1;
-  padding-top: 3.25rem;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 1.25rem;
-  background: var(--window-background);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-}
-
-.tab-manager-window .window-controls {
-  top: 1.25rem;
-}
-
-.tab-manager-window .screenshot {
-  max-width: none;
-  width: 100%;
-  margin: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* Tab Manager responsive layout */
-@media screen and (max-width: 700px) {
-  .tab-manager-container {
-    padding: 7rem 1.25rem 3rem;
-  }
-
-  .tab-manager-preview {
-    padding: 1.25rem;
-    border-radius: 1.25rem;
-  }
-
-  .tab-manager-window {
-    padding-top: 2.75rem;
-  }
-}
