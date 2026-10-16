@@ -29,27 +29,29 @@ Instead of forcing your thoughts into isolated silos or rigid folder trees, Tess
 
 ---
 
-## ✨ Features
+## ✨ Features & Consolidated Apps
 
-| Feature | Description |
-| :--- | :--- |
-| 🌳 **Object-Based Organization** | Connect ideas, notes, and tasks through real relationships — not folders. |
-| 📝 **Notes** | Rich text and Markdown editor crafted for structuring thoughts effortlessly. |
-| ✅ **Todos, Goals & Habits** | Track daily routines, recurring habits, and long-term milestones in one unified view. |
-| 📸 **Content Capture** | Universal capture for web clips, inspiration, and articles before they disappear. |
-| 📅 **Calendar** | Plan your days, visualize time, and align deadlines with tasks. |
-| ⏱️ **Time Tracking** | Integrated focus timers and hour monitoring to understand where your time goes. |
-| 🎨 **Whiteboards** | Spatial infinite canvas to brainstorm, sketch, mind map, and think out loud. |
-| 🗂️ **Flashcards** | Built-in spaced repetition system (SRS) for retention that sticks. |
-| 🗄️ **Databases** | Structured, customizable data views with powerful filtering and zero complexity. |
-| 🤖 **AI Assistant** | Context-aware AI that accelerates output, synthesis, and organization. |
+Instead of paying for and context-switching between a dozen fragmented tools, Tesseract brings your entire cognitive stack into one cohesive, local-first interface:
+
+| Feature | Description | Replaces & Consolidates |
+| :--- | :--- | :--- |
+| 🌳 **Object-Based Organization** | Connect ideas, notes, and tasks through real relationships — not rigid folders. | Capacities, Anytype, Roam Research, Logseq, Obsidian |
+| 📝 **Notes** | Rich text and Markdown editor crafted for structuring thoughts effortlessly. | Notion, Obsidian, Bear, Craft, Apple Notes, Evernote |
+| ✅ **Todos, Goals & Habits** | Track daily routines, recurring habits, and long-term milestones in one unified view. | Todoist, Things 3, TickTick, Streaks, Habitica |
+| 📸 **Content Capture** | Universal capture for web clips, inspiration, and articles before they disappear. | Raindrop.io, Cosmos, Fabric, Readwise Reader, Pocket, Pinterest, mymind |
+| 📅 **Calendar & Planning** | Plan your days, visualize time, and align deadlines directly with tasks and projects. | Sunsama, Akiflow, Morgen, Notion Calendar (Cron), Fantastical, Google Calendar |
+| ⏱️ **Time Tracking** | Integrated focus timers and hour monitoring to understand where your time goes. | Toggl Track, Rize, Clockify, Forest, Timely |
+| 🎨 **Whiteboards** | Spatial infinite canvas to brainstorm, sketch, mind map, moodboard, and think out loud. | Miro, Milanote, FigJam, Pinterest, Freeform, Whimsical |
+| 🗂️ **Flashcards** | Built-in spaced repetition system (SRS) for retention that sticks. | Anki, Quizlet, RemNote, Brainscape |
+| 🗄️ **Databases** | Structured, customizable data views with powerful filtering and zero complexity. | Notion Databases, Airtable, Coda, Baserow |
+| 🤖 **AI Assistant** | Context-aware AI that accelerates output, synthesis, and organization without clutter. | Notion AI, Mem.ai, ChatGPT Plus / Claude subscriptions |
 
 ---
 
 ## 🧩 Ecosystem & Extensions
 
 ### Tesseract Tab Manager
-A cross-browser companion extension built to eliminate tab clutter, externalize executive function, and group browser tabs into organized contextual spaces. Preview available at [`tab-manager.html`](tab-manager.html).
+A cross-browser companion extension built to eliminate tab clutter, externalize executive function, and group browser tabs into organized contextual spaces *(replaces OneTab, Workona, Toby, and Tabli)*. Preview available at [`tab-manager.html`](tab-manager.html).
 
 ---
 
