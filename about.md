@@ -1,6 +1,6 @@
 # abstract + intention
 
-Tesseract. What is Tesseract?
+so Tesseract. what is Tesseract?
 
 - Your idea inbox.
 - interconnected knowledge.
