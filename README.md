@@ -39,7 +39,7 @@ Instead of paying for and context-switching between a dozen fragmented tools, Te
 | 📝 **Notes** | Rich text and Markdown editor crafted for structuring thoughts effortlessly. | Notion, Obsidian, Bear, Craft, Apple Notes, Evernote |
 | ✅ **Todos, Goals & Habits** | Track daily routines, recurring habits, and long-term milestones in one unified view. | Todoist, Things 3, TickTick, Streaks, Habitica |
 | 📸 **Content Capture** | Universal capture for web clips, inspiration, and articles before they disappear. | Raindrop.io, Cosmos, Fabric, Readwise Reader, Pocket, Pinterest, mymind |
-| 📅 **Calendar & Planning** | Plan your days, visualize time, and align deadlines directly with tasks and projects. | Sunsama, Akiflow, Morgen, Notion Calendar (Cron), Fantastical, Google Calendar |
+| 📅 **Calendar & Planning** | Plan your days, visualize time, and align deadlines directly with tasks and projects. | Sunsama, Akiflow, Morgen, Notion Calendar (Cron), Fantastical, Daybridge, Motion |
 | ⏱️ **Time Tracking** | Integrated focus timers and hour monitoring to understand where your time goes. | Toggl Track, Rize, Clockify, Forest, Timely |
 | 🎨 **Whiteboards** | Spatial infinite canvas to brainstorm, sketch, mind map, moodboard, and think out loud. | Miro, Milanote, FigJam, Pinterest, Freeform, Whimsical |
 | 🗂️ **Flashcards** | Built-in spaced repetition system (SRS) for retention that sticks. | Anki, Quizlet, RemNote, Brainscape |

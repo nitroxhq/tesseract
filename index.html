@@ -27,11 +27,8 @@
     <link rel="stylesheet" href="./styles.css" />
     
     <!-- libraries - load dependencies in correct order -->
-    
-    <!-- load Typed.js from a CDN // nah 10.17.2026 need to get this locally fr -->
-    
-    <!--<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>-->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- hero typewriter lives in script.js; no CDN, works offline -->
     
   </head>
 
@@ -42,8 +39,14 @@
       <div class="hero">
         <h1 class="hero-heading">
           <span>Tesseract is your </span>
-          <span>productivity supertool.</span>
-          <!--<span id="typeWriter"></span>-->
+          <!-- typed by script.js. The invisible ghost phrase reserves the
+               widest line so the heading does not reflow while typing; the
+               sr-only copy keeps one stable sentence for screen readers. -->
+          <span class="type-line" aria-hidden="true"
+            ><span id="typeWriter"></span
+            ><span class="type-ghost">productivity supertool.</span></span
+          >
+          <span class="sr-only">productivity supertool.</span>
         </h1>
 
         <nav class="cta-links" aria-label="primary actions">

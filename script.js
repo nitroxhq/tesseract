@@ -1,12 +1,96 @@
 /* Tesseract site script
    ---------------------
-   1. Navbar injection — loads navbar.html, needs HTTP (file:// will fail)
-   2. Active link state — computed from the current file, not authored per page
-   3. Mobile menu — toggle, Escape, outside click, focus returns to the toggle
-   4. Theme picker — device / dark / light, saved under the shared nitrox key
+   1. Hero typewriter — vanilla, no library, no network
+   2. Navbar injection — loads navbar.html, needs HTTP (file:// will fail)
+   3. Active link state — computed from the current file, not authored per page
+   4. Mobile menu — toggle, Escape, outside click, focus returns to the toggle
+   5. Theme picker — device / dark / light, saved under the shared nitrox key
 */
 (function () {
   const THEME_KEY = 'nitrox-theme';
+
+  /* ---------- typewriter ---------- */
+
+  /* Replaces the old Typed.js CDN dependency. Everything is local: the phrases
+     live here and the animation is plain setTimeout, so it runs with no
+     network at all (file:// included). */
+  function initTypewriter() {
+    const target = document.getElementById('typeWriter');
+    if (!target) return;
+
+    /* Wording matches archive/script.js. index.html's ghost + sr-only copy
+       assume the last phrase is the one that takes the most room. */
+    const phrases = [
+      'idea inbox.',
+      'focus frontier.',
+      'study space.',
+      'creativity catalyst.',
+      'productivity supertool.',
+    ];
+
+    const TYPE_MS = 55;
+    const ERASE_MS = 28;
+    const HOLD_MS = 2200;
+    const GAP_MS = 350;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    /* Reduced motion: land on the full sentence, no looping. */
+    const settle = () => {
+      target.textContent = phrases[phrases.length - 1];
+    };
+    if (reduceMotion.matches) {
+      settle();
+      return;
+    }
+
+    let phrase = 0;
+    let visible = 0;
+    let erasing = false;
+    let timer;
+
+    const tick = () => {
+      const text = phrases[phrase];
+
+      if (!erasing) {
+        visible += 1;
+        target.textContent = text.slice(0, visible);
+        if (visible === text.length) {
+          erasing = true;
+          timer = setTimeout(tick, HOLD_MS);
+        } else {
+          timer = setTimeout(tick, TYPE_MS);
+        }
+        return;
+      }
+
+      visible -= 1;
+      target.textContent = text.slice(0, visible);
+      if (visible === 0) {
+        erasing = false;
+        phrase = (phrase + 1) % phrases.length;
+        timer = setTimeout(tick, GAP_MS);
+      } else {
+        timer = setTimeout(tick, ERASE_MS);
+      }
+    };
+
+    timer = setTimeout(tick, 600);
+
+    /* If the OS setting flips mid-session, stop cleanly on the full sentence. */
+    const onMotionChange = () => {
+      if (!reduceMotion.matches) return;
+      clearTimeout(timer);
+      settle();
+    };
+    if (reduceMotion.addEventListener) {
+      reduceMotion.addEventListener('change', onMotionChange);
+    } else {
+      reduceMotion.addListener(onMotionChange);
+    }
+
+    /* The timer chain stops itself when this tab is closed; nothing to clean up. */
+  }
 
   /* ---------- nav ---------- */
 
@@ -15,18 +99,28 @@
     if (!nav) return;
 
     /* active link: compare the link's file with the current file. A link that
-       points at a hash on the current page is only active when that hash is. */
+       points at a hash on the current page is only active when that hash is.
+       Re-run on hashchange so in-page anchors update the marker without a
+       reload (e.g. home -> features). */
     const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-    const currentHash = window.location.hash.replace('#', '');
 
-    nav.querySelectorAll('.nav-buttons').forEach((link) => {
-      const href = (link.getAttribute('href') || '').replace(/^\.\//, '');
-      const [file, hash = ''] = href.split('#');
-      if (file !== currentFile) return;
-      if (hash !== currentHash) return;
-      link.classList.add('active');
-      link.setAttribute('aria-current', hash ? 'location' : 'page');
-    });
+    const markActive = () => {
+      const currentHash = window.location.hash.replace('#', '');
+      nav.querySelectorAll('.nav-buttons').forEach((link) => {
+        const href = (link.getAttribute('href') || '').replace(/^\.\//, '');
+        const [file, hash = ''] = href.split('#');
+        const match = file === currentFile && hash === currentHash;
+        link.classList.toggle('active', match);
+        if (match) {
+          link.setAttribute('aria-current', hash ? 'location' : 'page');
+        } else {
+          link.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    markActive();
+    window.addEventListener('hashchange', markActive);
 
     /* mobile menu */
     const toggle = nav.querySelector('.nav-toggle');
@@ -56,7 +150,7 @@
       toggle.focus();
     });
 
-    const wideScreen = window.matchMedia('(min-width: 901px)');
+    const wideScreen = window.matchMedia('(min-width: 951px)');
     const closeOnWide = (event) => {
       if (event.matches) setOpen(false);
     };
@@ -126,6 +220,8 @@
   /* ---------- boot ---------- */
 
   document.addEventListener('DOMContentLoaded', () => {
+    initTypewriter();
+
     const placeholder = document.getElementById('nav-placeholder');
     if (!placeholder) {
       initTheme();
