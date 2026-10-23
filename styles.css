@@ -63,43 +63,109 @@ src: url('assets/fonts/instrument-sans/InstrumentSans-VariableFont_wdth,wght.wof
 }
 
 
+/* Theme tokens
+   ------------
+   The palette is raw (theme-independent); the semantic tokens resolve with
+   light-dark(), which follows color-scheme. So one token block serves all three
+   picker values: device -> "light dark", dark -> dark, light -> light.
+   Keep raw hex here only. Components consume the semantic tokens. */
 :root {
+  /* raw palette */
+  --tess-purple: #a161ea;
+  --tess-violet: #c897ff;
+  --tess-purple-deep: #7a3bc4;
+  --tess-purple-deeper: #5f2b9e;
+  --tess-ink: #0b0b10;
+  --tess-ink-soft: #4b4b55;
+  --tess-obsidian: #0f0f0f;
+  --tess-lavender: #f4effc;
+  --tess-lavender-2: #eae1f7;
+  --nitrox-blue: #3232ff;
+
+  /* device is the default; the picker overrides this on <html> */
+  color-scheme: light dark;
+
+  /* surfaces */
+  --canvas: light-dark(var(--tess-lavender), var(--tess-obsidian));
+  --surface: light-dark(rgba(255, 255, 255, 0.78), rgba(20, 20, 20, 0.7));
+  --surface-hover: light-dark(rgba(161, 97, 234, 0.1), rgba(161, 97, 234, 0.2));
+  --surface-hover-strong: light-dark(var(--tess-lavender-2), #2e2e2e);
+  --window-background: light-dark(#fbfaff, #29292d);
+  --not-found-background: var(--canvas);
+
+  /* ink */
+  --text: light-dark(var(--tess-ink), #ffffff);
+  --text-soft: light-dark(var(--tess-ink-soft), rgba(255, 255, 255, 0.78));
+  --text-meta: light-dark(rgba(11, 11, 16, 0.6), rgba(255, 255, 255, 0.6));
+  --text-faint: light-dark(rgba(11, 11, 16, 0.45), rgba(255, 255, 255, 0.4));
+  --text-shadow: 0 2px 10px light-dark(transparent, rgba(0, 0, 0, 0.6));
+
+  /* lines and accent */
+  --line: light-dark(rgba(11, 11, 16, 0.14), rgba(255, 255, 255, 0.14));
+  --line-accent: light-dark(rgba(161, 97, 234, 0.28), rgba(161, 97, 234, 0.2));
+  --accent: light-dark(var(--tess-purple-deep), var(--tess-purple));
+  --accent-strong: light-dark(var(--tess-purple-deeper), var(--tess-violet));
+
+  /* buttons */
+  --btn-bg: var(--accent);
+  --btn-bg-hover: var(--accent-strong);
+  --btn-ink: #ffffff;
+  --btn-glow: light-dark(rgba(122, 59, 196, 0.28), rgba(161, 97, 234, 0.45));
+  --btn-ghost-bg: light-dark(rgba(11, 11, 16, 0.04), rgba(255, 255, 255, 0.08));
+  --btn-ghost-bg-hover: light-dark(rgba(11, 11, 16, 0.09), rgba(255, 255, 255, 0.14));
+  --btn-ghost-ink: light-dark(var(--tess-ink), rgba(255, 255, 255, 0.78));
+  --btn-ghost-ink-hover: light-dark(var(--tess-ink), #ffffff);
+  --btn-ghost-border: light-dark(rgba(11, 11, 16, 0.16), rgba(255, 255, 255, 0.16));
+  --btn-ghost-border-hover: light-dark(rgba(11, 11, 16, 0.3), rgba(255, 255, 255, 0.28));
+
+  /* shared nitrox chrome: the pill stays white in both product themes */
+  --nav-bg: #ffffff;
+  --nav-ink: #0b0b10;
+  --nav-line: rgba(0, 0, 0, 0.08);
+  --nav-shadow: light-dark(rgba(11, 11, 16, 0.14), rgba(0, 0, 0, 0.3));
+
+  /* legacy aliases kept so existing rules and the inline SVG marks resolve */
+  --background-color: var(--canvas);
+  --primary-color: var(--tess-purple);
+  --primary-shadow: rgba(161, 97, 234, 0.24);
+  --secondary-color: var(--tess-violet);
+  --window-close: #ff5f57;
+  --window-minimize: #febc2e;
+  --window-maximize: #28c840;
+  --nitrox-color: var(--nitrox-blue);
+
+  /* fonts */
+  --serif: 'EB Garamond', serif;
+  --sans-serif: 'Inter', sans-serif;
+  --mono: 'Geist Mono', monospace;
+  --sans: 'Instrument Sans', sans-serif;
+
+  --mond: 'EB Garamond', serif;
+  --inst: 'Instrument Serif', serif;
+
   font-family: var(--sans-serif);
-  /* background-color: black; */
-  background-color: #0f0f0f;
-  /* background: #2e2e2e;
-    background: linear-gradient(240deg,rgba(46, 46, 46, 1) 0%, rgba(15, 15, 15, 1) 100%); 
-  */
-
-  background-image: url(/assets/noise.png);
-
+  background-color: var(--canvas);
+  background-image: url('./assets/noise.png');
   background-position: 0 0;
   background-size: 200px 200px;
   background-repeat: repeat;
   background-attachment: fixed;
+}
 
+html[data-theme="light"] {
+  color-scheme: light;
+  /* grain is a dark-canvas treatment, not a light one */
+  background-image: none;
+}
 
-  /* VARS ---------------------------- */
-  /* colors */
-    --background-color: #0f0f0f;
-    --primary-color: #A161EA;
-    --primary-shadow: rgba(161, 97, 234, 0.24);
-    --secondary-color: #C897FF;
-    --text: #ffffff;
-    --window-background: #29292d;
-    --window-close: #ff5f57;
-    --window-minimize: #febc2e;
-    --window-maximize: #28c840;
-    --nitrox-color: #0B73EE;
-  /* fonts */
-    /* --serif: 'Instrument Serif', serif; */
-    --serif: 'EB Garamond', serif;
-    --sans-serif: 'Inter', sans-serif;
-    --mono: 'Geist Mono', monospace;
-    --sans: 'Instrument Sans', sans-serif;
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
 
-    --mond: 'EB Garamond', serif;
-    --inst: 'Instrument Serif', serif;
+@media (prefers-color-scheme: light) {
+  html[data-theme="device"] {
+    background-image: none;
+  }
 }
 
 .hero-heading {
@@ -245,7 +311,7 @@ src: url('assets/fonts/instrument-sans/InstrumentSans-VariableFont_wdth,wght.wof
 /* this is the order i want all css to be in lol */
 .metadata {
   display: block;
-  color: rgba(255,255,255,0.6);
+  color: var(--text-meta);
   font-family: var(--mono);
   font-weight: 300;
   font-size: 0.9rem;
@@ -262,204 +328,374 @@ src: url('assets/fonts/instrument-sans/InstrumentSans-VariableFont_wdth,wght.wof
 
 
 
-/* Shared navigation */
-.top-nav {
-  font-family: var(--sans-serif);
-  font-weight: 550;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  height: 4rem;
+/* Shared navigation — inherited from the nitrox parent chrome (DESIGN.md §6.1).
+   The pill stays white in both product themes; only its shadow follows the
+   page theme. Do not restyle it per page. */
+.nitrox-nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--text);
-  background: rgba(15, 15, 15, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(161, 97, 234, 0.08);
-}
-
-nav.cta-links {
-  position: relative;
-  top: auto;
-  z-index: auto;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 2rem;
-  margin-top: 1rem;
-  background: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  margin: 28px auto 3rem auto;
+  padding: 10px 22px;
+  box-sizing: border-box;
+  background-color: var(--nav-bg);
+  border-radius: 100vmax;
+  box-shadow: 0 8px 20px var(--nav-shadow);
+  position: relative;
+  z-index: 100;
+  font-family: var(--sans);
+  font-weight: 600;
 }
+
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  color: var(--text);
-  text-decoration: none;
-
-  /*margin-right: 0.85rem;*/
-  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+  gap: 8px;
 }
-.nav-brand:hover{
-  opacity: 0.78;
+
+.nav-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.nav-logo-link:hover {
+  opacity: 0.8;
   transform: translateY(-1px);
 }
 
-.nav-brand-group {
-  display: flex;
-  align-items: center;
-  margin-left: 1rem;
-}
-
-.nav-logo {
-  width: 1.5rem;
-  height: 1.7rem;
+.nav-logo-img {
+  width: 24px;
+  height: auto;
+  display: block;
 }
 
 .nav-brand-text {
   font-family: var(--sans);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
-}
-
-
-.brand-divider {
-  margin-left: 1.25rem;
-  color: rgba(255, 255, 255, 0.28);
-  font-family: var(--mono);
-}
-
-.nitrox-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-left: 0.85rem;
-  color: var(--text);
+  color: var(--nav-ink);
+  letter-spacing: -0.01em;
   text-decoration: none;
-  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+  display: inline-block;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.nitrox-brand:hover{
-  opacity: 0.78;
+.nav-brand-text:hover {
+  opacity: 0.8;
   transform: translateY(-1px);
 }
 
-.nitrox-logo {
-  display: block;
-  width: 1.5rem;
-  height: 1.7rem;
-  background: var(--nitrox-color);
-  -webkit-mask: url("./assets/white-logo-svg.svg") center / contain no-repeat;
-  mask: url("./assets/white-logo-svg.svg") center / contain no-repeat;
+.nav-nitrox-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 2px;
+  padding: 2px 2px 2px 12px;
+  border-left: 1px solid var(--nav-line);
+  color: var(--nav-ink);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.25s ease;
 }
 
-.nitrox-brand-text {
+.nav-nitrox-link:hover {
+  opacity: 1;
+}
+
+.nav-nitrox-mark {
+  display: block;
+  width: 15px;
+  height: 17px;
+  background-color: currentColor;
+  -webkit-mask: url('./assets/white-logo-svg.svg') center / contain no-repeat;
+  mask: url('./assets/white-logo-svg.svg') center / contain no-repeat;
+}
+
+.nav-nitrox-text {
   font-family: var(--sans);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
-.nav-menu ul {
-  margin: 0 1rem 0 0;
-  padding: 0;
+
+/* desktop: the menu wrapper is transparent so the links stay direct children
+   of the pill; on small screens it becomes the drop-down panel */
+.nav-menu {
+  display: contents;
+}
+
+.nav-links {
   display: flex;
-  
-  list-style: none;
+  align-items: center;
   gap: 0.35rem;
-  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.nav-menu ul li a {
-  color: var(--text);
+
+.nav-buttons {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--nav-ink);
   text-decoration: none;
-  padding: 0.6rem 0.8rem;
-  display: block;
-  border: 1px solid transparent;
+  padding: 0.35rem 0.8rem;
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.72);
-  transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
+  transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
 }
-.nav-menu ul li {
-  transition: transform 0.3s ease;
+
+.nav-buttons:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
-.nav-menu ul li:hover {
-  transform: translateY(-2px);
+
+.nav-buttons.active {
+  color: var(--nitrox-blue);
+  background-color: rgba(0, 0, 0, 0.06);
 }
-.nav-menu ul li:hover a {
-  color: var(--text);
-  background: rgba(161, 97, 234, 0.16);
-  border-color: rgba(200, 151, 255, 0.24);
-  box-shadow: 0 8px 24px rgba(161, 97, 234, 0.16);
+
+.nav-buttons:focus-visible,
+.nav-brand-text:focus-visible,
+.nav-logo-link:focus-visible,
+.nav-nitrox-link:focus-visible {
+  outline: 2px solid var(--nitrox-blue);
+  outline-offset: 2px;
 }
-.nav-hamburger {
+
+/* theme picker */
+.nav-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.theme-btn svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.theme-btn:hover {
+  color: var(--nav-ink);
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.theme-btn[aria-pressed="true"] {
+  background-color: var(--nav-bg);
+  color: var(--nav-ink);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.theme-btn:focus-visible {
+  outline: 2px solid var(--nitrox-blue);
+  outline-offset: 1px;
+}
+
+.nav-toggle {
   display: none;
-  gap: 5px;
-  margin-right: 1rem;
-
   flex-direction: column;
-  justify-content: space-around;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin-left: auto;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--nav-ink);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
-.nav-hamburger-line {
-  width: 100%;
-  height: 3px;
-  background-color: var(--text);
-  border-radius: 0.25rem;
-  transition: all 0.3s ease;
+
+.nav-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.06);
 }
-/* Navigation responsive layout */
-@media screen and (max-width: 550px) {
-  .nav-hamburger {
-    display: flex; /* Show hamburger on small screens */
+
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--nitrox-blue);
+  outline-offset: 2px;
+}
+
+.nav-toggle-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  transition: transform 0.22s ease, opacity 0.16s ease;
+}
+
+.nitrox-nav.is-open .nav-toggle-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nitrox-nav.is-open .nav-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.nitrox-nav.is-open .nav-toggle-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@keyframes nav-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
   }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* small screens: brand + theme + three lines; the menu drops below the brand
+   row. 900px is content-driven: the pill stops fitting there, not at 720. */
+@media (max-width: 900px) {
+  .nitrox-nav {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    margin: 20px 12px 2rem;
+    gap: 0.5rem 1rem;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 100vmax;
+  }
+
+  .nitrox-nav.is-open {
+    border-radius: 22px;
+  }
+
   .nav-menu {
-    display: none; /* Hide the regular menu on small screens */
-    position: absolute;
-    top: 3.5rem;
-    right: 1rem;
-    background-color: rgba(15, 15, 15, 0.95);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-  }
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .nav-menu ul {
-    flex-direction: column;
+    display: none;
+    order: 3;
+    flex-basis: 100%;
     width: 100%;
-    padding: 3rem 0 0.5rem 0;
+    border-top: 1px solid var(--nav-line);
+    padding-top: 4px;
   }
-  .nav-menu ul li {
-    text-align: center;
+
+  .nav-theme {
+    order: 1;
+    margin-left: auto;
   }
-  .nav-menu {
-    z-index: -1; /* Ensure it appears behind the hamburger when hidden */
+
+  .nav-toggle {
+    order: 2;
+    display: inline-flex;
+    margin-left: 0;
   }
-  .nav-menu:active {
-    top: 0; /* Show menu when active */
+
+  .nitrox-nav.is-open .nav-menu {
+    display: block;
+    animation: nav-menu-in 0.18s ease both;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.7rem 0.65rem;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .nav-buttons:hover {
+    transform: none;
+  }
+
+  .nav-links .nav-buttons + .nav-buttons::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0.65rem;
+    right: 0.65rem;
+    height: 1px;
+    background-color: var(--nav-line);
+  }
+
+  .nav-brand-text {
+    font-size: 1.05rem;
+  }
+
+  .nav-nitrox-text {
+    display: none;
   }
 }
 
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
+  .nav-toggle-line {
+    transition: none;
+  }
 
+  .nitrox-nav.is-open .nav-menu {
+    animation: none;
+  }
+}
 
+/* shared focus visibility (DESIGN.md §8.3) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 
+/* Reduced motion (DESIGN.md §8.1) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* Landing page base */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 2rem;
 }
 body {
   margin: 0;
@@ -468,7 +704,7 @@ body {
   /* background: url('.assets/purple-borealis.jpg') center/cover no-repeat fixed; */
   /* background-color: rgb(#3e1172); */
   
-  color: rgb(255, 255, 255);
+  color: var(--text);
   font-family: var(--sans-serif);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -552,25 +788,25 @@ body {
 }
 
 .btn-primary {
-  background: #A161EA;
-  color: #fff;
-  box-shadow: 0 0px 15px #A161EA;
+  background: var(--btn-bg);
+  color: var(--btn-ink);
+  box-shadow: 0 0 15px var(--btn-glow);
 }
 .btn-primary:hover {
-  background: #C897FF; /* colors the link when hovered over */
+  background: var(--btn-bg-hover);
   transform: translateY(-5px);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--btn-ghost-bg);
+  color: var(--btn-ghost-ink);
+  border: 1px solid var(--btn-ghost-border);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--text);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: var(--btn-ghost-bg-hover);
+  color: var(--btn-ghost-ink-hover);
+  border-color: var(--btn-ghost-border-hover);
   transform: translateY(-5px);
 }
 
@@ -637,6 +873,7 @@ body {
   max-width: 980px;
   margin: 0 auto;
   padding: 0 20px 4rem;
+  box-sizing: border-box;
 }
 
 .bento-heading {
@@ -644,7 +881,7 @@ body {
   font-size: 2rem;
   text-align: center;
   margin: 0 0 2rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: var(--text-shadow);
 }
 
 
@@ -656,9 +893,8 @@ body {
 }
 
 .bento-card {
-  background: rgba(20, 20, 20, 0.7);
-  /* border: 1px solid rgba(161, 97, 234, 0.15); */
-  border: 2.4px solid rgba(161, 97, 234, 0.2);
+  background: var(--surface);
+  border: 2.4px solid var(--line-accent);
   border-radius: 0.75rem;
   padding: 1.5rem;
   display: flex;
@@ -674,29 +910,43 @@ body {
   box-shadow: 0 4px 20px rgba(161, 97, 234, 0.15);
   */
 
-  background: rgba(161, 97, 234, 0.2); 
+  background: var(--surface-hover);
   border-color: var(--primary-color);
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(161, 97, 234, 0.3);
+  box-shadow: 0 10px 30px var(--primary-shadow);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(10px); /* For Safari support */
 }
 
 /* Optional: Make the icon and text pop more on hover */
-.bento-card:hover i {
-  color: var(--secondary-color);
-  filter: drop-shadow(0 0 8px var(--primary-color));
+.bento-card:hover .bento-icon {
+  color: var(--accent-strong);
+  filter: drop-shadow(0 0 8px light-dark(transparent, var(--tess-purple)));
 }
 
 .bento-card:hover h3 {
-  color: #fff;
-  filter: drop-shadow(0 0 8px var(--secondary-color));
+  color: var(--text);
+  filter: drop-shadow(0 0 8px light-dark(transparent, var(--tess-violet)));
 }
 
-.bento-card i {
-  font-size: 1.75rem;
-  color: var(--primary-color);
+/*
+ * Bento icons are Phosphor duotone (MIT) vendored inline as a <symbol> sprite at
+ * the end of index.html — the CDN stylesheet is not available offline.
+ */
+.bento-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  flex: none;
+  color: var(--accent);
+  fill: currentColor; /* the vendored sprite paths carry no fill of their own */
   margin-bottom: 0.25rem;
+}
+
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .bento-card h3 {
@@ -710,7 +960,7 @@ body {
 .bento-card p {
   font-family: var(--sans-serif);
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-meta);
   margin: 0;
   line-height: 1.5;
 }
@@ -761,6 +1011,7 @@ body {
   max-width: 780px;
   margin: 0 auto;
   padding: 0 20px 4rem;
+  box-sizing: border-box;
 }
 
 .faq-heading {
@@ -768,7 +1019,7 @@ body {
   font-size: 2rem;
   text-align: center;
   margin: 0 0 2rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: var(--text-shadow);
 }
 
 .faq-list {
@@ -778,14 +1029,14 @@ body {
 }
 
 .faq-item {
-  background: rgba(20, 20, 20, 0.7);
-  border: 2.4px solid rgba(161, 97, 234, 0.2);
+  background: var(--surface);
+  border: 2.4px solid var(--line-accent);
   border-radius: 0.75rem;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .faq-item[open] {
-  background: rgba(161, 97, 234, 0.12);
+  background: var(--surface-hover);
   border-color: var(--primary-color);
 }
 
@@ -805,7 +1056,7 @@ body {
 .faq-item p {
   font-family: var(--sans-serif);
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-soft);
   line-height: 1.6;
   margin: 0;
   padding: 0 1.5rem 1.25rem;
@@ -827,13 +1078,13 @@ body {
   font-family: var(--serif);
   font-size: 2rem;
   margin: 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: var(--text-shadow);
 }
 
 .cta-subtext {
   font-family: var(--sans-serif);
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-meta);
   margin: 0;
 }
 
@@ -846,7 +1097,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  border-top: 1px solid rgba(161, 97, 234, 0.1);
+  border-top: 1px solid var(--line);
   margin-top: 2rem;
 }
 
@@ -873,7 +1124,7 @@ body {
 .footer-copyright {
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-faint);
   margin: 0;
 }
 
@@ -904,7 +1155,7 @@ body {
 }
 
 .tesseract-heading {
-  color: #A161EA;
+  color: var(--accent-strong);
   font-family: var(--serif);
   font-size: 3rem;
   font-weight: 400;
@@ -917,7 +1168,7 @@ body {
 
 .tesseract-heading:hover {
   text-decoration: underline;
-  background: #2e2e2e;
+  background: var(--surface-hover-strong);
 }
 
 .social-button1 {
@@ -942,7 +1193,7 @@ body {
 
 /* About page sections */
 .hero {
-  padding-top: 4rem;
+  padding-top: 1rem;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -951,7 +1202,7 @@ body {
   font-family: var(--sans-serif);
   font-size: 0.9rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-soft);
   max-width: 700px;
   margin: 2rem auto;
   padding: 0 20px;
@@ -972,7 +1223,7 @@ body {
   font-family: var(--sans-serif);
   font-size: 0.9rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-soft);
   margin-bottom: 1.5rem;
 }
 
@@ -987,7 +1238,7 @@ body {
   font-family: var(--sans-serif);
   font-size: 0.9rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-soft);
   margin-bottom: 1.5rem;
 }
 
@@ -1024,12 +1275,13 @@ body {
   justify-content: flex-start;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 8rem 4rem 5rem;
+  padding: 2rem 4rem 5rem;
 }
 
 .landing-container > .hero {
   align-items: flex-start;
   max-width: 900px;
+  min-width: 0; /* let the flex item shrink instead of forcing the page wider */
   margin: 0 auto 4rem 0;
   padding-top: 0;
   text-align: left;
@@ -1039,7 +1291,6 @@ body {
   margin: 0 0 0.75rem;
   padding: 0;
   text-align: left;
-  white-space: nowrap;
 }
 
 .landing-container > .hero .hero-subtitle {
@@ -1050,7 +1301,7 @@ body {
   margin: 0 0 2rem;
   font-family: var(--sans-serif);
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text-soft);
   line-height: 1.6;
 }
 
@@ -1072,7 +1323,7 @@ body {
   min-height: 620px;
   overflow: hidden;
   padding: 5rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line);
   border-radius: 2rem;
   background: url("./assets/purple-borealis.jpg") center / cover no-repeat;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
@@ -1093,7 +1344,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--line);
   border-radius: 1.25rem;
   background: var(--window-background);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
@@ -1165,7 +1416,7 @@ body {
 /* Landing hero responsive layout */
 @media screen and (max-width: 700px) {
   .landing-container {
-    padding: 7rem 1.25rem 3rem;
+    padding: 1.5rem 1.25rem 3rem;
   }
 
   .landing-container > .hero {
@@ -1178,7 +1429,6 @@ body {
 
   .landing-container > .hero .hero-heading {
     font-size: 2.25rem;
-    white-space: normal;
   }
 
   .landing-container > .hero .main-btns {
@@ -1206,16 +1456,21 @@ body {
 /* 404 page */
 .not-found-page {
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem 1.5rem;
+  padding: 0 1.5rem 2.5rem;
   box-sizing: border-box;
   background: var(--not-found-background);
 }
 
 .not-found-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: min(100%, 600px);
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -1269,13 +1524,13 @@ body {
 
 /* tab manager page */
 .tab-manager-page {
-  background: var(--background-color);
+  background: var(--canvas);
 }
 
 .tab-manager-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 9rem 4rem 5rem;
+  padding: 2rem 4rem 5rem;
 }
 
 .tab-manager-hero {
@@ -1315,7 +1570,7 @@ body {
   position: relative;
   overflow: hidden;
   padding: 5rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line);
   border-radius: 2rem;
   background: url("./assets/purple-borealis.jpg") center / cover no-repeat;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
@@ -1333,7 +1588,7 @@ body {
   z-index: 1;
   padding-top: 3.25rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--line);
   border-radius: 1.25rem;
   background: var(--window-background);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
@@ -1363,7 +1618,7 @@ body {
 /* Tab Manager responsive layout */
 @media screen and (max-width: 700px) {
   .tab-manager-container {
-    padding: 7rem 1.25rem 3rem;
+    padding: 1.5rem 1.25rem 3rem;
   }
 
   .tab-manager-preview {
