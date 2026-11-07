@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101114" />
+  <title>Tesseract — Personal workspace</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="appstyle.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row"><a class="brand" href="#" aria-label="Tesseract dashboard"><span class="brand-mark">✦</span><span>tesseract</span></a><button class="icon-btn" id="collapse-sidebar" aria-label="Collapse sidebar">←</button></div>
+      <button class="workspace-switcher"><span class="avatar">N</span><span><strong>Nitrox workspace</strong><small>Personal vault</small></span><span class="chevron">⌄</span></button>
+      <button class="search-trigger" id="search-trigger"><span>⌕</span><span>Search anything</span><kbd>⌘ K</kbd></button>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <p class="nav-label">Workspace</p>
+        <button class="nav-item active" data-view="dashboard"><span>◈</span>Dashboard</button>
+        <button class="nav-item" data-view="today"><span>◷</span>Today <span class="nav-count">4</span></button>
+        <button class="nav-item" data-view="planner"><span>▦</span>Planner</button>
+        <button class="nav-item" data-view="capture"><span>＋</span>Capture</button>
+        <p class="nav-label library-label">Library</p>
+        <button class="nav-item" data-view="objects"><span>◇</span>All objects</button>
+        <button class="nav-item" data-view="tasks"><span>☑</span>Tasks <span class="nav-count">12</span></button>
+        <button class="nav-item" data-view="canvases"><span>⌗</span>Canvases</button>
+        <button class="nav-item" data-view="graph"><span>◎</span>Graph</button>
+      </nav>
+      <div class="pinned"><div class="section-heading"><p class="nav-label">Pinned</p><button class="tiny-btn" aria-label="Add pinned item">＋</button></div><button class="pin-item" data-view="project"><span class="pin-dot purple"></span>Nitrox <span class="more">•••</span></button><button class="pin-item"><span class="pin-dot orange"></span>School <span class="more">•••</span></button><button class="pin-item"><span class="pin-dot blue"></span>Personal <span class="more">•••</span></button></div>
+      <div class="sidebar-footer"><button class="footer-action">⚙ Settings</button><button class="footer-action theme-toggle" id="theme-toggle">◐ Appearance</button><div class="profile"><span class="avatar small">A</span><span><strong>Alex Morgan</strong><small>Free plan</small></span><span class="more">•••</span></div></div>
+    </aside>
+    <main class="main-column">
+      <header class="topbar"><div class="mobile-brand"><span class="brand-mark">✦</span>tesseract</div><div class="breadcrumbs"><span id="crumb-section">Workspace</span><span>/</span><strong id="crumb-page">Dashboard</strong></div><div class="top-actions"><button class="top-action" id="open-capture">＋ <span>New</span></button><button class="icon-btn" id="toggle-context" aria-label="Toggle context panel">☷</button><button class="avatar small">A</button></div></header>
+      <div class="tab-strip" id="tabs"><button class="tab active" data-view="dashboard"><span class="tab-symbol">◈</span>Dashboard <span class="tab-close">×</span></button><button class="tab" data-view="project"><span class="tab-symbol purple-text">●</span>Nitrox project <span class="tab-close">×</span></button><button class="tab" data-view="planner"><span class="tab-symbol orange-text">▦</span>Planner <span class="tab-close">×</span></button><button class="add-tab" aria-label="New tab">＋</button></div>
+      <div class="content" id="content"></div>
+    </main>
+    <aside class="context-panel" id="context-panel"><div class="context-header"><span>Context</span><button class="icon-btn" id="close-context" aria-label="Close context panel">×</button></div><div class="context-tabs"><button class="context-tab active">Outline</button><button class="context-tab">Backlinks</button><button class="context-tab">Details</button></div><div class="outline"><div class="outline-title">Dashboard</div><a>Today&apos;s focus</a><a>Upcoming</a><a>Recently opened</a><a>Capture inbox</a></div><div class="context-card"><span class="eyebrow">CONNECTED OBJECTS</span><div class="related-item"><span class="type-icon purple-bg">◈</span><span><strong>Nitrox project</strong><small>Project · updated 2h ago</small></span></div><div class="related-item"><span class="type-icon orange-bg">☑</span><span><strong>Ship v0 prototype</strong><small>Task · due today</small></span></div><div class="related-item"><span class="type-icon blue-bg">▤</span><span><strong>Design references</strong><small>Collection · 8 objects</small></span></div></div><div class="mini-graph"><span class="eyebrow">LOCAL GRAPH</span><div class="graph-art"><i class="node n1"></i><i class="node n2"></i><i class="node n3"></i><i class="node n4"></i><span class="edge e1"></span><span class="edge e2"></span><span class="edge e3"></span></div><button class="text-btn" data-view="graph">Open full graph →</button></div></aside>
+  </div>
+  <div class="modal-backdrop" id="command-modal" hidden><div class="command-modal" role="dialog" aria-modal="true" aria-labelledby="command-title"><div class="command-search"><span>⌕</span><input id="command-input" placeholder="Search or jump to..." autocomplete="off" /><kbd>esc</kbd></div><div class="command-results"><p class="command-label">Quick actions</p><button class="command-item" data-action="task"><span class="command-icon orange-bg">☑</span><span><strong>Create a task</strong><small>Add something to get done</small></span><kbd>↵</kbd></button><button class="command-item" data-action="note"><span class="command-icon purple-bg">✎</span><span><strong>Write a note</strong><small>Capture a thought or idea</small></span><kbd>↵</kbd></button><button class="command-item" data-action="event"><span class="command-icon blue-bg">▦</span><span><strong>Schedule an event</strong><small>Block time on your planner</small></span><kbd>↵</kbd></button><p class="command-label">Navigate</p><button class="command-item" data-view="objects"><span class="command-icon">◇</span><span><strong>All objects</strong><small>Browse your connected workspace</small></span><kbd>⌘ 1</kbd></button><button class="command-item" data-view="graph"><span class="command-icon">◎</span><span><strong>Knowledge graph</strong><small>Explore how everything connects</small></span><kbd>⌘ 2</kbd></button></div></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
