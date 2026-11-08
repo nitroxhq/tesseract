@@ -17,6 +17,19 @@
 
 /* LOCAL FONTS (WORKS OFFLINE~) */
 @font-face {
+  font-family: 'Newsreader';
+  font-weight: 550;
+  src: url('assets/fonts/newsreader/Newsreader-VariableFont_opsz,wght.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  font-weight: 400;
+  font-style: italic;
+  src: url('assets/fonts/newsreader/Newsreader-Italic-VariableFont_opsz,wght.woff2') format('woff2');
+}
+
+@font-face {
   font-family: 'EB Garamond';
   font-weight: 400;
   src: url('assets/fonts/eb-garamond/EBGaramond-VariableFont_wght.woff2') format('woff2');
@@ -48,9 +61,9 @@
 }
 
 @font-face {
-font-family: 'Geist Mono';
-font-weight: 400;
-src: url('assets/fonts/geist-mono/GeistMono-Regular.woff2') format('woff2');
+  font-family: 'Geist Mono';
+  font-weight: 400;
+  src: url('assets/fonts/geist-mono/GeistMono-Regular.woff2') format('woff2');
 }
 
 
@@ -163,13 +176,14 @@ src: url('assets/fonts/instrument-sans/InstrumentSans-VariableFont_wdth,wght.wof
   --nitrox-color: var(--nitrox-blue);
 
   /* fonts */
-  --serif: 'EB Garamond', serif;
+  --serif: 'Newsreader', serif;
   --sans-serif: 'Inter', sans-serif;
   --mono: 'Geist Mono', monospace;
   --sans: 'Instrument Sans', sans-serif;
 
   --mond: 'EB Garamond', serif;
   --inst: 'Instrument Serif', serif;
+  --newsrd: 'Newsreader', serif;
 
   font-family: var(--sans-serif);
   background-color: var(--canvas);
