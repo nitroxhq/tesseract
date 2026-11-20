@@ -1,0 +1,19 @@
+# Keep in git for design/AI reference; do not ship to Vercel deploys.
+# https://vercel.com/docs/deployments/vercel-ignore
+
+# Dev / archive / design dumps
+.dev/
+archive/
+assets/@*/
+
+# Full Google Fonts source kits
+assets/fonts/@ folders/
+**/*.ttf
+**/*.otf
+
+# Scratch
+.git/
+.github/
+*.md
+!README.md
+idx.dex.nt
